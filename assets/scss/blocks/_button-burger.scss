@@ -1,0 +1,63 @@
+.burger {
+    @include reset-button;
+    @include squere(30px);
+    @include flex-center;
+    position: relative;
+    z-index: 2;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: black;
+        border-radius: 3px;
+
+        position: absolute;
+        left: 50%;
+        translate: -50% 0;
+        transition: all .3s ease;
+    }
+
+    &::before {
+        top: 3px;
+    }
+
+    &::after {
+        bottom: 3px;
+    }
+
+    & span {
+        font-size: 0;
+        width: 100%;
+        height: 3px;
+        background: black;
+        border-radius: 3px;
+        transition: all .3s ease;
+    }
+
+    &.burger--active {
+
+        & span {
+            opacity: 0;
+        }
+
+        &::before,
+        &::after {
+            width: 90%;
+            top: 50%;
+            bottom: auto;
+            translate: -50% -50%;
+        }
+
+        &::before {
+            rotate: 45deg;
+        }
+
+        &::after {
+            rotate: -45deg;
+
+        }
+    }
+}

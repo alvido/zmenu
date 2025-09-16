@@ -1,0 +1,16 @@
+.button {
+    @include reset-button;
+    @include flex-center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-small);
+
+    color: var(--color-white);
+    background: var(--color-black);
+    border: 2px solid var(--color-black);
+
+    @include hover {
+        color: var(--color-black);
+        background: transparent;
+    }
+}
