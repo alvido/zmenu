@@ -42,3 +42,13 @@ section {
 .center {
     text-align: center;
 }
+
+.row {
+    @include flex-center;
+    gap: 20px;
+
+    >.column {
+        flex-basis: 50%;
+    }
+}
+

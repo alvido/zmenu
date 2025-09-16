@@ -1,14 +1,10 @@
 .logo {
 
     @include hover {
-        scale: 1.1;
+        filter: brightness(0.8);
     }
 
     & img {
-        max-width: 90px;
-
-        @include mobile {
-        max-width: 70px;
-        }
+        max-width: 190px;
     }
 }

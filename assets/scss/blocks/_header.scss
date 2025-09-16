@@ -1,7 +1,7 @@
 .header {
     position: relative;
-    padding: 20px 0;
-    background: #444;
+    padding: 23px 0;
+    background-color: var(--color-black);
 
     &.fixed {
         position: fixed;
@@ -9,5 +9,20 @@
         right: 0;
         top: 0;
         z-index: 2;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+
+    &__actions {
+        margin-left: auto;
+        & .button {
+            height: 48px;
+            font-size: 16px;
+            font-weight: 700;
+        }
     }
 }
