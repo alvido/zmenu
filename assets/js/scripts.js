@@ -1,27 +1,57 @@
-const init = async () => {
-  // Burger Menu Open //
-  // Выбираем бургер-кнопку и навигацию
-  let burgerButton = document.getElementById("burgerButton");
-  let navigation = document.getElementById("primary-navigation");
-  let links = document.querySelectorAll(".navigation__link");
 
-  // Если бургер-кнопка существует, добавляем обработчик события
-  if (burgerButton && navigation) {
+
+const init = async () => {
+
+  // Mobile Menu //
+  let burgerButton = document.getElementById("burgerButton");
+  let mobileNav = document.querySelector(".mobile__nav");
+  let body = document.body;
+
+  function closeMenu() {
+    mobileNav.classList.remove("nav--active");
+    body.classList.remove("lock");
+  }
+
+  if (burgerButton && mobileNav) {
+    let closeBtn = mobileNav.querySelector("#closeMenu");
+    let links = mobileNav.querySelectorAll(".navigation__list a");
+    let nav = mobileNav.querySelector("nav");
+
+    // открыть меню
     burgerButton.addEventListener("click", function (e) {
-      e.stopPropagation(); // Остановка всплытия события
-      burgerButton.classList.toggle("burger--active"); // Переключаем класс активности бургер-кнопки
-      navigation.classList.toggle("navigation--active"); // Переключаем класс активности навигации
+      e.stopPropagation();
+      mobileNav.classList.add("nav--active");
+      body.classList.add("lock");
+    });
+
+    // закрыть по крестику
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+    // закрыть по клику на ссылку
+    // закрыть по клику на ссылку
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        // проверяем родителя
+        let parentLi = link.closest("li");
+
+        if (parentLi && parentLi.classList.contains("menu-item-has-children")) {
+          // у ссылки есть подменю → не закрываем
+          e.preventDefault(); // чтобы не переходило по ссылке сразу, если нужно открыть подменю
+        } else {
+          closeMenu();
+        }
+      });
+    });
+
+
+    // закрыть по клику вне nav
+    mobileNav.addEventListener("click", function (e) {
+      if (!nav.contains(e.target)) {
+        closeMenu();
+      }
     });
   }
 
-  // links.forEach((link) => {
-  //   link.addEventListener("click", function (e) {
-  //     burgerButton.classList.remove("burger--active");
-  //     navigation.classList.remove("navigation--active");
-  //     console.log("link", link);
-  //   });
-  // });
-  // Burger Menu Open //
 
   // Fixed Header //
   const header = document.querySelector(".header");
@@ -48,87 +78,73 @@ const init = async () => {
     });
   }
   // Fixed Header //
-
-  // select
-  var x, i, j, l, ll, selElmnt, a, b, c;
-  /*look for any elements with the class "custom-select":*/
-  x = document.getElementsByClassName("custom-select");
-  l = x.length;
-  for (i = 0; i < l; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    ll = selElmnt.length;
-    /*for each element, create a new DIV that will act as the selected item:*/
-    a = document.createElement("DIV");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-    /*for each element, create a new DIV that will contain the option list:*/
-    b = document.createElement("UL");
-    b.setAttribute("class", "select-items select-hide");
-    for (j = 1; j < ll; j++) {
-      /*for each option in the original select element,
-      create a new DIV that will act as an option item:*/
-      c = document.createElement("LI");
-      c.innerHTML = selElmnt.options[j].innerHTML;
-      c.addEventListener("click", function (e) {
-        /*when an item is clicked, update the original select box,
-        and the selected item:*/
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-      });
-      b.appendChild(c);
-    }
-    x[i].appendChild(b);
-    a.addEventListener("click", function (e) {
-      /*when the select box is clicked, close any other select boxes,
-      and open/close the current select box:*/
-      e.stopPropagation();
-      closeAllSelect(this);
-      this.nextSibling.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
-  }
-  function closeAllSelect(elmnt) {
-    /*a function that will close all select boxes in the document,
-    except the current select box:*/
-    var x, y, i, xl, yl, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    xl = x.length;
-    yl = y.length;
-    for (i = 0; i < yl; i++) {
-      if (elmnt == y[i]) {
-        arrNo.push(i)
-      } else {
-        y[i].classList.remove("select-arrow-active");
-      }
-    }
-    for (i = 0; i < xl; i++) {
-      if (arrNo.indexOf(i)) {
-        x[i].classList.add("select-hide");
-      }
-    }
-  }
-  /*if the user clicks anywhere outside the select box,
-  then close all select boxes:*/
-  document.addEventListener("click", closeAllSelect);
-  // select
 };
 
+
+// -has-children
+document.addEventListener("DOMContentLoaded", function () {
+  // Находим все элементы меню с подменю
+  const menuItems = document.querySelectorAll(".menu-item-has-children > a");
+
+  // Обрабатываем клик по каждому элементу меню
+  menuItems.forEach(item => {
+    item.addEventListener("click", function (e) {
+      e.preventDefault(); // Предотвращаем переход по ссылке
+
+      const parentMenuItem = item.parentElement; // Получаем родителя элемента <a>
+
+      // Если у родителя уже есть класс active, то оставляем его, иначе убираем у соседей и добавляем текущему
+      if (!parentMenuItem.classList.contains('active')) {
+        // Убираем класс active у всех соседей
+        parentMenuItem.parentElement.querySelectorAll('.menu-item-has-children').forEach(sibling => {
+          if (sibling !== parentMenuItem) {
+            sibling.classList.remove('active');
+          }
+        });
+
+        // Добавляем класс active к текущему элементу
+        parentMenuItem.classList.add('active');
+      } else {
+        // Если уже активен, то просто убираем класс
+        parentMenuItem.classList.remove('active');
+      }
+    });
+  });
+
+  // Закрытие подменю при клике вне области навигации
+  document.addEventListener("click", function (e) {
+    // Если клик не по элементу с подменю
+    if (!e.target.closest(".menu-item-has-children")) {
+      // Убираем класс 'active' у всех родительских элементов меню
+      document.querySelectorAll('.menu-item-has-children.active').forEach(activeItem => {
+        activeItem.classList.remove("active");
+      });
+    }
+  });
+});
+// -has-children
+
+
+// Динамическая смена фона в секциях
+function updateBackgrounds() {
+  const isMobile = window.innerWidth <= 560;
+
+  document.querySelectorAll("section").forEach(section => {
+    const desktopBg = section.getAttribute("data-desktop-bg");
+    const mobileBg = section.getAttribute("data-mobile-bg");
+
+    if (isMobile && mobileBg) {
+      section.style.backgroundImage = `url(${mobileBg})`;
+    } else {
+      // Если desktopBg есть — ставим его, если нет — убираем фон
+      section.style.backgroundImage = desktopBg ? `url(${desktopBg})` : "none";
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", updateBackgrounds);
+window.addEventListener("resize", updateBackgrounds);
+// Динамическая смена фона в секциях
+
+// Инициализация после загрузки страницы
 window.onload = init;

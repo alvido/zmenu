@@ -29,12 +29,12 @@ $container: 1200;
     /*border*/
 
     /*body*/
-    --font-family-base: "Montserrat", serif;
+    --font-family-base: "Montserrat", sans-serif;
 
     --container-width: #{$container}px;
     --container-padding-x: 20px;
 
-    --section-padding-y: 40px;
+    --section-padding-y: clamp(3.75rem, -2.917rem + 13.89vw, 7.5rem);
     /*body*/
 
     /*button*/

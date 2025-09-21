@@ -7,11 +7,15 @@
     <meta name="mobile-web-app-capable" content="yes"> <!-- Для Android -->
     <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Для iOS -->
 
-    <title>Project</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-
-
+    <title>zmenu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="assets/css/style.css">
+
+
 
 </head>
 
@@ -20,7 +24,16 @@
         <header class="header">
             <div class="container">
                 <div class="header__inner">
-                    <a href="#" class="logo"><img src="assets/images/logo.svg" alt=""></a>
+                    <button class="burger" id="burgerButton">
+                        <img src="assets/images/icons/burger.svg" alt="menu">
+                    </button>
+                    <a href="#" class="logo">
+                        <picture>
+                            <source srcset="assets/images/favicon.svg" media="(max-width: 768px)">
+                            <img src="assets/images/logo.svg" alt="Logo">
+                        </picture>
+                    </a>
+
                     <nav class="header__navigation navigation">
                         <ul class="navigation__list">
                             <li class="menu-item menu-item-has-children">
@@ -47,12 +60,86 @@
                         </ul>
                     </nav>
                     <div class="header__actions row">
-                        <a href="#" class="button button--white">Login</a>
+                        <a href="#" class="button button--white hidden-mobile">Login</a>
                         <a href="#" class="button button--accent">Open my restaurant</a>
                     </div>
 
                 </div>
         </header>
+        <div class="mobile__nav">
+            <button class="icon close" id="closeMenu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.0001 9.8183L2.18182 0L0 2.18182L9.8183 12.0001L0.000232995 21.8182L2.18205 24L12.0001 14.1819L21.8182 24L24 21.8182L14.1819 12.0001L24.0002 2.18182L21.8184 1.07288e-06L12.0001 9.8183Z"
+                        fill="white" />
+                </svg>
+            </button>
+            <nav class="nav" role="navigation" aria-label="mobile navigation">
+                <ul class="navigation__list">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#">Solutions </a>
+                        <ul class="sub-menu">
+                            <li class="menu-item">
+                                <a href="#">Solutions one</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#">Solutions two</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">Opportunities </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">How it works </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Equipment </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">Opportunities </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">How it works </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Equipment </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">Opportunities </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">How it works </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Equipment </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">Opportunities </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">How it works </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Equipment </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">Opportunities </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">How it works </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Equipment </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <main class="main" id="primary">
             <section class="hero">
                 <div class="container">
@@ -60,18 +147,21 @@
                         <div class="column">
                             <h1><span style="color: var(--color-accent);">In 20 minutes</span>, you will have a running
                                 POS solution</h1>
-                            <p>Being a restaurant owner is challenging, <br> so we made POS software that’s easy for you
+                            <p>Being a restaurant owner is challenging, so we made POS software that’s easy for you
                             </p>
-                            <p>How easy?<br>
-                                In just 20 minutes, your POS <br>
+                            <p>How easy?
+                                In just 20 minutes, your POS
                                 will be up and running.</p>
-                            <div class="row">
+                            <div class="buttons row">
                                 <a href="#" class="button">See details</a>
                                 <a href="#" class="button button--accent">Let’s start</a>
                             </div>
                         </div>
                         <div class="column">
-                            <img src="assets/images/hero-image.png" alt="">
+                            <picture>
+                                <source srcset="assets/images/hero-mobile.png" media="(max-width: 560px)">
+                                <img src="assets/images/hero-image.png" alt="Logo">
+                            </picture>
                             <div class="icons-platforms">
                                 <img src="assets/images/icons/apple.svg" alt="apple">
                                 <img src="assets/images/icons/android.svg" alt="android">
@@ -81,17 +171,260 @@
                     </div>
                 </div>
             </section>
-            <div class="container">
-                main
-                <a href="#" class="button">Let’s start</a>
-                <a href="#" class="button button--accent">Let’s start</a>
-                <a href="#" class="button button--white">Let’s start</a>
+            <section class="steps">
+                <div class="container">
+                    <h2 class="center"><span style="color: var(--color-accent);">Only 4 steps</span> to launch</h2>
+                    <ul class="steps__list">
+                        <li>
+                            <div class="row">
+                                <span class="counter"></span>
+                                <h3 class="step__title">Registration</h3>
+                            </div>
+                            <p class="step__text">Quick signup to create your restaurant account</p>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <span class="counter"></span>
+                                <h3 class="step__title">Customization</h3>
+                            </div>
+                            <p class="step__text">Input your menu, waiters, and tables or import automatically
+                                from your old POS</p>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <span class="counter"></span>
+                                <h3 class="step__title">Installation</h3>
+                            </div>
+                            <p class="step__text">Instruct your waiters
+                                to install menu4u app
+                                or/and Install it on your Windows PC or tablet
+                                as a fixed POS</p>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <span class="counter"></span>
+                                <h3 class="step__title">Launch</h3>
+                            </div>
+                            <p class="step__text">Few minor printers
+                                and payment methods configs</p>
+                        </li>
+                    </ul>
+                    <div class="buttons row">
+                        <a href="#" class="button button--accent">Let’s start</a>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+            </section>
+            <section class="working">
+                <div class="container">
+                    <div class="working__inner row">
+                        <div class="column">
+                            <h2 class="">
+                                <span style="color: var(--color-accent);">Working</span> from the waiter's
+                                <span style="color: var(--color-accent);">phone</span>
+                            </h2>
+                            <p>
+                                No need to buy extra hardware or manage endless restaurant
+                                tablets just to offer quick services to customers.
+                                Each waiter installs the POS on his private mobile phone and he’s ready to go
+                            </p>
+                            <a href="#" class="button">Read in detail</a>
+                        </div>
+                        <div class="column">
+                            <img class="" src="assets/images/phone.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            </div>
+            <section class="serve" data-mobile-bg="assets/images/serve-bg.png" data-desktop-bg="">
+                <div class="container">
+                    <div class="row">
+                        <div class="column">
+                            <img src="assets/images/internet.png" alt="">
+                        </div>
+                        <div class="column">
+                            <h2 class=""> Continue to serve even if the internet or electricity goes down</h2>
+                            <p>
+                                Our POS was designed to continue working even if the internet or electricity goes down
+                                without worry.
+                                All the data and orders will be automatically synced once the network returns offline
+                                mode
+                            </p>
+                            <a href="#" class="button button--accent">Read in detail</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="decisions">
+                <div class="container">
+                    <div class="row">
+                        <div class="column">
+                            <h2 class="">
+                                <span style="color: var(--color-accent);">AI-Powered Insights </span> for Smarter
+                                Decisions
+                            </h2>
+                            <p>
+                                Running a restaurant means making tough calls every day. <br>
+                                Our built-in AI helps you make those decisions with confidence
+                                by turning your data into clear, actionable insights.
+                            </p>
+                            <p>
+                                With AI built directly into your POS, you’ll always know the next best step for your
+                                restaurant’s growth.
+                            </p>
+                        </div>
+                        <div class="column">
+                            <ul class="decisions__list">
+                                <li class="decisions__item">
+                                    <svg width="47" height="43" viewBox="0 0 47 43" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.09375 0.682129H2.52564V39.5924H7.38942V15.2735H17.117V39.5924H21.9808V5.54591H31.7083V39.5924H36.5721V25.001H46.2997V42.0243H0.09375V0.682129ZM39.004 27.4329V39.5924H43.8678V27.4329H39.004ZM24.4127 7.9778V39.5924H29.2764V7.9778H24.4127ZM9.82131 17.7054V39.5924H14.6851V17.7054H9.82131Z"
+                                            fill="black" />
+                                    </svg>
+                                    <p>Smart Recommendations – Get AI-powered suggestions to improve efficiency and
+                                        increase revenue.</p>
+                                </li>
+                                <li class="decisions__item">
+                                    <svg width="37" height="45" viewBox="0 0 37 45" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.31412 31.8319C4.37857 28.7438 1.84814 23.9429 1.84814 18.5516C1.84814 9.2347 9.40072 1.68213 18.7176 1.68213C28.0346 1.68213 35.5871 9.2347 35.5871 18.5516C35.5871 23.9429 33.0577 28.7438 29.1212 31.8319C28.8308 32.9914 28.5091 34.143 28.1566 35.2852C27.853 36.2755 27.0303 36.9949 25.9993 37.1031C24.617 37.247 22.286 37.4058 18.7176 37.4058C15.1492 37.4058 12.8183 37.247 11.436 37.1031C10.4049 36.9949 9.58231 36.2755 9.27866 35.2842C8.99387 34.3583 8.63365 33.1209 8.31412 31.8319Z"
+                                            stroke="black" stroke-width="2.0126" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.2633 37.0785C11.4647 38.3784 11.6741 39.5613 11.8488 40.496C12.0969 41.8109 13.0316 42.8667 14.3544 43.0661C15.3924 43.2239 16.8342 43.3599 18.7176 43.3599C20.5088 43.3599 21.9804 43.2368 23.1007 43.09C24.6726 42.8836 25.7741 41.5757 25.9447 39.9989L26.2633 37.0616M28.6409 17.5595C28.6409 12.0789 24.1982 7.63623 18.7176 7.63623"
+                                            stroke="black" stroke-width="2.0126" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <p>Performance Analysis – Instantly see which menu items, staff, and shifts are
+                                        driving profits.</p>
+                                </li>
+                                <li class="decisions__item">
+                                    <svg width="47" height="52" viewBox="0 0 47 52" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M23.901 28.6408C31.4655 28.6408 37.5978 22.5085 37.5978 14.9439C37.5978 7.37936 31.4655 1.24707 23.901 1.24707C16.3364 1.24707 10.2041 7.37936 10.2041 14.9439C10.2041 22.5085 16.3364 28.6408 23.901 28.6408Z"
+                                            stroke="black" stroke-width="2.0126" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M45.8158 50.5556C45.8158 44.7434 43.5069 39.1692 39.397 35.0594C35.2872 30.9495 29.713 28.6406 23.9008 28.6406C18.0886 28.6406 12.5144 30.9495 8.40459 35.0594C4.29473 39.1692 1.98584 44.7434 1.98584 50.5556"
+                                            stroke="black" stroke-width="2.0126" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <p>Customer Trends – Understand guest behavior, loyalty patterns, and sales cycles
+                                        to make better business choices.</p>
+                                </li>
+                                <li class="decisions__item">
+                                    <svg width="69" height="39" viewBox="0 0 69 39" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M49.793 1.33594H67.6967V19.2397" stroke="white" stroke-width="2.0126"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M1.19702 37.1434L20.5986 17.7418C21.0736 17.2667 21.6376 16.8898 22.2583 16.6326C22.879 16.3755 23.5443 16.2431 24.2161 16.2431C24.888 16.2431 25.5533 16.3755 26.174 16.6326C26.7947 16.8898 27.3586 17.2667 27.8336 17.7418L35.9447 25.8528C36.4197 26.328 36.9837 26.7049 37.6044 26.962C38.2251 27.2191 38.8903 27.3515 39.5622 27.3515C40.2341 27.3515 40.8993 27.2191 41.52 26.962C42.1407 26.7049 42.7047 26.328 43.1797 25.8528L65.139 3.89355"
+                                            stroke="white" stroke-width="2.0126" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <p>Profit Optimization – Receive alerts and insights that help reduce costs and
+                                        boost earnings.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
         <footer class="footer">
             <div class="container">
-                footer
+                <div class="footer__inner">
+                    <div class="footer__item">
+                        <a class="footer__logo" href="#">
+                            <img src="assets/images/footer.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="footer__item">
+                        <nav class="footer__nav" role="navigation">
+                            <ul class="footer__list">
+                                <li class="menu-item menu-item-has-children">
+                                    <a href="#">Solutions </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">For Restaurants </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">For Retail</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">For Hotels</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer__item">
+                        <nav class="footer__nav" role="navigation">
+                            <ul class="footer__list">
+                                <li class="menu-item menu-item-has-children">
+                                    <a href="#">Functions </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Opportunities </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Affiliates</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Jobs</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Prices</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Contact us</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer__item">
+                        <h5 class="footer__title">Contacts</h5>
+                        <a class="footer__link" href="mailto:sales@zmenu.net">
+                            <svg width="23" height="18" viewBox="0 0 23 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1.83337 4L9.99829 9.71544C10.6595 10.1783 10.9901 10.4097 11.3496 10.4993C11.6673 10.5785 11.9995 10.5785 12.3171 10.4993C12.6767 10.4097 13.0073 10.1783 13.6685 9.71544L21.8334 4M6.63337 17H17.0334C18.7135 17 19.5536 17 20.1953 16.673C20.7598 16.3854 21.2188 15.9265 21.5064 15.362C21.8334 14.7202 21.8334 13.8802 21.8334 12.2V5.8C21.8334 4.11984 21.8334 3.27976 21.5064 2.63803C21.2188 2.07354 20.7598 1.6146 20.1953 1.32698C19.5536 1 18.7135 1 17.0334 1H6.63337C4.95322 1 4.11314 1 3.4714 1.32698C2.90692 1.6146 2.44797 2.07354 2.16035 2.63803C1.83337 3.27976 1.83337 4.11984 1.83337 5.8V12.2C1.83337 13.8802 1.83337 14.7202 2.16035 15.362C2.44797 15.9265 2.90692 16.3854 3.4714 16.673C4.11314 17 4.95322 17 6.63337 17Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            sales@zmenu.net
+                        </a>
+                        <ul class="social__list">
+                            <li class="social__item">
+                                <a href="#">
+                                    <img src="assets/images/icons/tg.svg" alt="telegram">
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#">
+                                    <img src="assets/images/icons/whatsapp.svg" alt="whatsapp">
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#">
+                                    <img src="assets/images/icons/chat.svg" alt="chat">
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="button button--accent">Manage my restaurant</a>
+                    </div>
+
+                </div>
+                <div class="copy">
+                    <p>© 2024 Zmenu. All rights reserved.</p>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Conditions</a>
+                </div>
             </div>
         </footer>
     </div>

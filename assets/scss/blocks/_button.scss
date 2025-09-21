@@ -17,6 +17,10 @@
         border-color: var(--color-text);
     }
 
+    @include mobile {
+        padding: 0 20px;
+    }
+
     &--accent {
         background: var(--color-accent);
         border-color: var(--color-accent);
@@ -39,4 +43,10 @@
 
         }
     }
+}
+
+.icon {
+    position: relative;
+    @include reset-button;
+    @include flex-center;
 }
