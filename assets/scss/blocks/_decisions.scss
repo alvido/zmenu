@@ -9,10 +9,21 @@
         }
     }
 
+    & .container {
+        @include tablet {
+            // display: contents;
+        }
+    }
+
     & .row {
+        min-height: 445px;
         justify-content: space-between;
+        padding: 20px;
+        background-color: var(--color-white);
+        border-radius: var(--border-radius);
 
         @include tablet {
+            padding-block: 35px;
             flex-direction: column;
             align-items: center;
             gap: 50px;
@@ -83,7 +94,7 @@
                 border-radius: 100% 0 0 0;
 
                 & p {
-                    bottom: 100%;
+                    bottom: 110%;
                     right: 0;
 
                     @include phone {
@@ -97,7 +108,7 @@
                 border-radius: 0 100% 0 0;
 
                 & p {
-                    bottom: 100%;
+                    bottom: 110%;
                     left: 0;
 
                     @include phone {
@@ -112,7 +123,7 @@
                 border-radius: 0 0 0 100%;
 
                 & p {
-                    top: 100%;
+                    top: 110%;
                     right: 0;
 
                     @include phone {
@@ -127,7 +138,7 @@
                 border-radius: 0 0 100% 0;
 
                 & p {
-                    top: 100%;
+                    top: 110%;
                     left: 0;
 
                     @include phone {
