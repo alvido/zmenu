@@ -1,81 +1,67 @@
 .faq {
-    padding: 80px 0;
-    background: #F6F3EE;
 
-    @include tablet {
-        padding: 40px 0 50px;
+    & h2 {
+        text-align: center;
     }
+
 
     &__list {
-        margin-top: 40px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
 
-        @include mobile {
-            margin-top: 10px;
-        }
-    }
+        & li {
+            position: relative;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-large);
 
-    &__item {
-        position: relative;
-        border-bottom: 1px solid #E6E6E6;
-
-        &.active {
-            & .icon {
-
-                & svg {
-                    opacity: 0;
+            &.active {
+                & .icon {
+                    & svg {
+                        rotate: 180deg;
+                    }
                 }
 
-                &::after {
+                & .content {
+                    padding: 0 24px 24px 24px;
+                    visibility: visible;
                     opacity: 1;
+                    height: auto;
+                }
+            }
+
+            & .action {
+                padding: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+
+                & h4 {
+                    @include fluid-text(24, 18);
+                    font-weight: 500;
+                }
+            }
+
+            & .icon {
+                width: 24px;
+
+                & svg {
+                    transition-duration: var(--transition-duration);
                 }
             }
 
             & .content {
-                margin-bottom: 24px;
-                visibility: visible;
-                opacity: 1;
-                height: auto;
-            }
-        }
-
-        & .action {
-            padding: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-
-            & h4 {
-                @include fluid-text(20, 16);
-                font-weight: 600;
-            }
-        }
-
-        & .icon {
-            width: 24px;
-            color: var(--color-black);
-
-            & svg {
-                color: var(--color-black);
-                transition-duration: var(--transition-duration);
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: url(../images/icons/arrow-down-yellow.svg) no-repeat center / cover;
-                transition-duration: var(--transition-duration);
+                height: 0;
                 opacity: 0;
+                visibility: hidden;
+                transition: all .3s ease;
+                overflow: hidden;
             }
         }
 
-        & .content {
-            height: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all .3s ease;
-            overflow: hidden;
-        }
     }
+
+
 }

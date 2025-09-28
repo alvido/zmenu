@@ -30,6 +30,10 @@
             font-size: 16px;
             font-weight: 700;
 
+            &--white {
+                border-color: var(--color-white);
+            }
+
             @include mobile {
                 height: 40px;
                 font-weight: 500;

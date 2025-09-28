@@ -6,6 +6,7 @@
 
     @include tablet {
         padding-bottom: 0;
+        background-color: transparent;
     }
 
     & .container {
@@ -15,7 +16,6 @@
     }
 
     & h1 {
-        max-width: 500px;
 
         @include tablet {
             max-width: 100%;
@@ -32,6 +32,45 @@
         }
     }
 
+    & ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        margin-top: 30px;
+        @include flex-center;
+        flex-wrap: wrap;
+        gap: 10px 34px;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+    }
+
+    & li {
+        position: relative;
+        font-size: 24px;
+        font-weight: 400;
+
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+        }
+    }
+
     & .row {
         @include tablet {
             flex-direction: column;
@@ -41,6 +80,7 @@
         & .column {
 
             &:first-child {
+                flex-basis: 60%;
 
                 @include tablet {
                     padding: 0 20px;
@@ -48,27 +88,14 @@
             }
 
             &:last-child {
+                flex-basis: 40%;
+
                 @include tablet {
                     display: flex;
                     flex-direction: column-reverse;
                 }
             }
         }
-    }
-
-
-}
-
-.buttons {
-    margin-top: 40px;
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 10px;
-
-    @include tablet {
-        margin-top: 30px;
-        gap: 30px;
-        justify-content: center;
     }
 
     & .button {
@@ -78,6 +105,21 @@
             height: 42px;
             width: auto;
         }
+    }
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+
+    @include tablet {
+        margin-top: 30px;
+        gap: 30px;
+        justify-content: center;
     }
 }
 
