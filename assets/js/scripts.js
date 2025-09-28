@@ -146,5 +146,114 @@ document.addEventListener("DOMContentLoaded", updateBackgrounds);
 window.addEventListener("resize", updateBackgrounds);
 // Динамическая смена фона в секциях
 
+//swiper
+document.addEventListener("DOMContentLoaded", function () {
+  // Инициализация слайдера "customer"
+  if (document.querySelector("#news")) {
+    new Swiper("#news", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      // },
+      pagination: {
+        el: ".news-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".news-button-next",
+        prevEl: ".news-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2, // Один полный слайд и куски по бокам
+          spaceBetween: 20, // Расстояние между слайдами
+          centeredSlides: true,
+        },
+        560: {
+          slidesPerView: 1.5, // Один полный слайд и куски по бокам
+          centeredSlides: true,
+          spaceBetween: 20, // Расстояние между слайдами
+        },
+        768: {
+          slidesPerView: 2, // Один полный слайд и куски по бокам
+          centeredSlides: false,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  }
+
+  if (document.querySelector("#reviews")) {
+    new Swiper("#reviews", {
+      observer: true,
+      observeParents: true,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".reviews-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".reviews-button-next",
+        prevEl: ".reviews-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1, // Один полный слайд и куски по бокам
+          spaceBetween: 20, // Расстояние между слайдами
+        },
+        440: {
+          slidesPerView: 1.5, // Один полный слайд и куски по бокам
+          spaceBetween: 18, // Расстояние между слайдами
+        },
+        560: {
+          slidesPerView: 2, // Один полный слайд и куски по бокам
+          spaceBetween: 20, // Расстояние между слайдами
+        },
+        900: {
+          slidesPerView: 3, // Один полный слайд и куски по бокам
+          spaceBetween: 20, // Расстояние между слайдами
+
+        },
+        1100: {
+          slidesPerView: 3.5,
+          spaceBetween: 20, // Расстояние между слайдами
+        },
+      },
+    });
+  }
+
+});
+// swiper
+
+//faq collapse
+$(document).ready(function () {
+  // Обработчик клика на элемент с классом faq__title
+  $(".action").on("click", function () {
+    // Находим ближайший родительский элемент с классом faq__item
+    var $item = $(this).closest(".faq__item");
+    // Переключаем класс active у найденного элемента
+    $item.toggleClass("active");
+  });
+
+  // Обработчик клика на элемент с классом faq__btn
+  $(".faq__btn").on("click", function () {
+    // Находим ближайший родительский элемент с классом faq__item
+    var $item = $(this).closest(".faq__item");
+    // Переключаем класс active у найденного элемента
+    $item.toggleClass("active");
+  });
+});
+//faq collapse
+
 // Инициализация после загрузки страницы
 window.onload = init;

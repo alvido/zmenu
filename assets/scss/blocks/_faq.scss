@@ -1,0 +1,81 @@
+.faq {
+    padding: 80px 0;
+    background: #F6F3EE;
+
+    @include tablet {
+        padding: 40px 0 50px;
+    }
+
+    &__list {
+        margin-top: 40px;
+
+        @include mobile {
+            margin-top: 10px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        border-bottom: 1px solid #E6E6E6;
+
+        &.active {
+            & .icon {
+
+                & svg {
+                    opacity: 0;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            & .content {
+                margin-bottom: 24px;
+                visibility: visible;
+                opacity: 1;
+                height: auto;
+            }
+        }
+
+        & .action {
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            & h4 {
+                @include fluid-text(20, 16);
+                font-weight: 600;
+            }
+        }
+
+        & .icon {
+            width: 24px;
+            color: var(--color-black);
+
+            & svg {
+                color: var(--color-black);
+                transition-duration: var(--transition-duration);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: url(../images/icons/arrow-down-yellow.svg) no-repeat center / cover;
+                transition-duration: var(--transition-duration);
+                opacity: 0;
+            }
+        }
+
+        & .content {
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease;
+            overflow: hidden;
+        }
+    }
+}

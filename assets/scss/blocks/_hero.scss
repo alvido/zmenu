@@ -46,6 +46,7 @@
                     padding: 0 20px;
                 }
             }
+
             &:last-child {
                 @include tablet {
                     display: flex;
@@ -55,31 +56,33 @@
         }
     }
 
-    & .buttons {
-        margin-top: 40px;
-        justify-content: space-between;
-        flex-direction: row;
-        gap: 10px;
+
+}
+
+.buttons {
+    margin-top: 40px;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+
+    @include tablet {
+        margin-top: 30px;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    & .button {
+        width: 50%;
 
         @include tablet {
-            margin-top: 30px;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        & .button {
-            width: 50%;
-
-            @include tablet {
-                height: 42px;
-                width: auto;
-            }
+            height: 42px;
+            width: auto;
         }
     }
+}
 
-    & .icons-platforms {
-        margin-top: 13px;
-        @include flex-center;
-        gap: 50px;
-    }
+.icons-platforms {
+    margin-top: 13px;
+    @include flex-center;
+    gap: 50px;
 }

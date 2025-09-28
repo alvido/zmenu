@@ -67,14 +67,16 @@
     }
 
     & .buttons {
+        margin: 0;
         gap: 53px;
+        justify-content: center;
 
         @include mobile {
             gap: 68px;
         }
 
         & .button {
-            min-width: 256px;
+            max-width: 256px;
 
             @include mobile {
                 height: 42px;

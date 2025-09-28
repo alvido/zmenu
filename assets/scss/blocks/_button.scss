@@ -38,8 +38,8 @@
 
         @include hover {
             color: var(--color-white);
-            background: var(--color-gray-dark);
-            border-color: var(--color-gray-dark);
+            background: var(--color-accent);
+            border-color: var(--color-accent);
 
         }
     }
