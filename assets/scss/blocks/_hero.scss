@@ -1,8 +1,7 @@
 .hero {
     @include flex-center;
     background-color: var(--color-white);
-    min-height: calc(100vh - 94px);
-    padding: clamp(2.5rem, -7.5rem + 20.83vw, 8.125rem) 0;
+    padding: 50px 0;
 
     @include tablet {
         padding-bottom: 0;
@@ -80,7 +79,6 @@
         & .column {
 
             &:first-child {
-                flex-basis: 60%;
 
                 @include tablet {
                     padding: 0 20px;
@@ -88,7 +86,6 @@
             }
 
             &:last-child {
-                flex-basis: 40%;
 
                 @include tablet {
                     display: flex;

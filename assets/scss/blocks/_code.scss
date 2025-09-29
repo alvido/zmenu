@@ -11,6 +11,18 @@
             &:nth-child(even) {
                 & .row {
                     flex-direction: row-reverse;
+
+                    @include mobile {
+                        flex-direction: row;
+                    }
+                }
+            }
+
+            &:nth-child(odd) {
+                & .row {
+                    @include mobile {
+                        flex-direction: row-reverse;
+                    }
                 }
             }
 
@@ -42,7 +54,7 @@
         @include laptop {
             padding: 20px;
         }
-        
+
         @include mobile {
             flex-basis: 60%;
         }
